@@ -59,6 +59,8 @@ group :test do
   gem "webdrivers"
 end
 
+gem "pundit"
+
 # Avoid unsafe DB migrations!
 gem "strong_migrations"
 
