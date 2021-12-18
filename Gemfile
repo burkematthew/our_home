@@ -59,6 +59,7 @@ group :test do
   gem "webdrivers"
 end
 
+gem "devise"
 gem "pundit"
 
 # Avoid unsafe DB migrations!
