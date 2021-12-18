@@ -59,5 +59,8 @@ group :test do
   gem "webdrivers"
 end
 
+# Avoid unsafe DB migrations!
+gem "strong_migrations"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
