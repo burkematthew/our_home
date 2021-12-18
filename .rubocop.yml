@@ -1,1 +1,5 @@
 require: rubocop-rails
+
+Style/StringLiterals:
+    Enabled: true
+    EnforcedStyle: double_quotes
