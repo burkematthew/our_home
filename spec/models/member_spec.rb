@@ -27,4 +27,16 @@ RSpec.describe Member, type: :model do
       end
     end
   end
+
+  describe "#full_name" do
+    let(:member) { FactoryBot.create(:member) }
+    it "when there is no middle name" do
+      expect(member.full_name).to eq member.first_name + member.last_name
+    end
+
+    it "when there is a middle name" do
+      member.middle_name = "Jimmy"
+      expect(member.full_name).to eq member.first_name + member.middle_name + member.last_name
+    end
+  end
 end
