@@ -10,7 +10,9 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-class Member < ApplicationRecord
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+FactoryBot.define do
+  factory :member do
+    first_name { "Matthew" }
+    last_name { "Simons" }
+  end
 end
