@@ -7,6 +7,8 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-class EventType < ApplicationRecord
-  validates :description, presence: true
+FactoryBot.define do
+  factory :event_type, class: Event::Type do
+    description { "Chore" }
+  end
 end
