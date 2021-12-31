@@ -9,7 +9,7 @@
 #
 require 'rails_helper'
 
-RSpec.describe EventType, type: :model do
+RSpec.describe Event::Type, type: :model do
   describe "required fields" do
     let(:event_type) { FactoryBot.build(:event_type) }
     context "description" do
