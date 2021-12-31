@@ -1,0 +1,15 @@
+version: 2
+updates:
+    - package-ecosystem: bundler
+      directory: '/'
+      schedule:
+          interval: daily
+      commit-message:
+          prefix: 'gem: '
+
+    - package-ecosystem: npm
+      directory: '/'
+      schedule:
+          interval: daily
+      commit-message:
+          prefix: 'npm: '
