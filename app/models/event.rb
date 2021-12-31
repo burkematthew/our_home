@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: events
@@ -31,6 +33,7 @@ class Event < ApplicationRecord
 
   def valid_date_range?
     return false if starts_at.nil? || ends_at.nil?
+
     errors.add(:starts_at, "must be less than or equal to ends_at") if starts_at.after?(ends_at)
   end
 end
