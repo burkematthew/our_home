@@ -19,16 +19,16 @@
 #
 #  fk_rails_...  (event_type_id => event_types.id)
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Event, type: :model do
   let!(:event_type) { FactoryBot.create(:event_type) }
   # TODO: Revisit this.  For some reason it's not working as expected.
   xit do
-    should belong_to(:type).
-      class_name("Event::Type").
-      with_primary_key("event_type_id").
-      optional
+    should belong_to(:type)
+      .class_name("Event::Type")
+      .with_primary_key("event_type_id")
+      .optional
   end
 
   describe "required fields" do
