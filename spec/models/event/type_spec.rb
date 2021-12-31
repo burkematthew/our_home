@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: event_types
@@ -7,7 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Event::Type, type: :model do
   describe "required fields" do
