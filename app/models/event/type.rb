@@ -7,8 +7,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-FactoryBot.define do
-  factory :event_type do
-    description { "Chore" }
-  end
+class Event::Type < ApplicationRecord
+  validates :description, presence: true
+  has_many :events, class_name: "Event", foreign_key: :event_type_id
 end
