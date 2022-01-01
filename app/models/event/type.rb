@@ -9,9 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-module Event
-  class Type < ApplicationRecord
-    validates :description, presence: true
-    has_many :events, class_name: "Event", foreign_key: :event_type_id
-  end
+class Event::Type < ApplicationRecord
+  validates :description, presence: true
+  has_many :events, class_name: "Event", foreign_key: :event_type_id
 end
