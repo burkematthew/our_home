@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_01_162354) do
+ActiveRecord::Schema.define(version: 2022_01_01_164750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignees", force: :cascade do |t|
+    t.string "assignable_type"
+    t.bigint "assignable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["assignable_type", "assignable_id"], name: "index_assignees_on_assignable"
+  end
 
   create_table "event_types", force: :cascade do |t|
     t.text "description"
