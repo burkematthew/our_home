@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_08_224216) do
+ActiveRecord::Schema.define(version: 2022_01_08_230557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,8 +71,10 @@ ActiveRecord::Schema.define(version: 2022_01_08_224216) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "assignable_type"
     t.bigint "assignable_id"
+    t.bigint "list_id"
     t.index ["assignable_type", "assignable_id"], name: "index_tasks_on_assignable"
     t.index ["due_date"], name: "index_tasks_on_due_date"
+    t.index ["list_id"], name: "index_tasks_on_list_id"
   end
 
   add_foreign_key "events", "event_types"
