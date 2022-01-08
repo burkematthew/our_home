@@ -54,3 +54,9 @@ jobs:
           PG_USER: test
           PG_PASSWORD: test
         run: bundle exec rspec
+      - name: Upload CodeCov Report
+        uses: codecov/codecov-action@v2.1.0
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+          verbose: true
