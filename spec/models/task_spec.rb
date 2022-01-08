@@ -9,6 +9,7 @@
 #  description     :text
 #  due_date        :date
 #  priority        :integer
+#  status          :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  assignable_id   :bigint
@@ -30,5 +31,9 @@ RSpec.describe Task, type: :model do
 
   it do
     should belong_to(:list).optional
+  end
+
+  it do
+    should validate_inclusion_of(:status).in_array(Task::STATUS_OPTIONS)
   end
 end

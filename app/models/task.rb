@@ -9,6 +9,7 @@
 #  description     :text
 #  due_date        :date
 #  priority        :integer
+#  status          :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  assignable_id   :bigint
@@ -23,7 +24,23 @@
 class Task < ApplicationRecord
   include Assignable
 
+  STATUS_NOT_STARTED = "Not Started"
+  STATUS_IN_PROGRESS = "In Progress"
+  STATUS_IN_REVIEW = "In Review"
+  STATUS_COMPLETE = "Complete"
+  STATUS_CANCELLED = "Cancelled"
+
+  STATUS_OPTIONS = [
+    Task::STATUS_NOT_STARTED,
+    Task::STATUS_IN_PROGRESS,
+    Task::STATUS_COMPLETE,
+    Task::STATUS_IN_REVIEW,
+    Task::STATUS_COMPLETE,
+    Task::STATUS_CANCELLED
+  ].freeze
+
   validates :description, presence: true
   validates :priority, presence: true
+  validates :status, inclusion: { in: Task::STATUS_OPTIONS }
   belongs_to :list, optional: true
 end

@@ -9,6 +9,7 @@
 #  description     :text
 #  due_date        :date
 #  priority        :integer
+#  status          :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  assignable_id   :bigint
@@ -23,6 +24,7 @@
 FactoryBot.define do
   factory :task do
     description { "Clean master bathroom" }
+    status { Task::STATUS_NOT_STARTED }
     priority { 1 }
     association :list
   end
