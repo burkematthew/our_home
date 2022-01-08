@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: assignees
@@ -15,6 +17,6 @@
 #  index_assignees_on_member_id   (member_id)
 #
 class Assignee < ApplicationRecord
-  belongs_to :assignable, :polymorphic => true
+  belongs_to :assignable, polymorphic: true
   belongs_to :member
 end
