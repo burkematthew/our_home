@@ -1,0 +1,56 @@
+name: CI
+
+on: [pull_request]
+
+jobs:
+  Rubocop:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        with:
+          bundler-cache: true
+      - name: Run RuboCop
+        run: bundle exec rubocop --parallel
+  Test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_DB: test        
+          POSTGRES_PASSWORD: test
+          POSTGRES_USER: test
+        ports:
+          - 5432:5432
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        with:
+          bundler-cache: true
+      - name: Install PostgreSQL Client
+        run: sudo apt-get -yqq install libpq-dev
+      - name: Setup Database
+        env:
+          RAILS_ENV: test
+          PG_USER: test
+          PG_PASSWORD: test
+        run: bundle exec rake db:create db:schema:load
+      - name: Run Tests
+        env:
+          RAILS_ENV: test
+          PG_USER: test
+          PG_PASSWORD: test
+        run: bundle exec rspec

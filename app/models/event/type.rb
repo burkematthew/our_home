@@ -11,5 +11,5 @@
 #
 class Event::Type < ApplicationRecord
   validates :description, presence: true
-  has_many :events, class_name: "Event", foreign_key: :event_type_id
+  has_many :events, class_name: "Event", foreign_key: :event_type_id, dependent: :restrict_with_error, inverse_of: :events
 end

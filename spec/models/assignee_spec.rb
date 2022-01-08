@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: assignees
@@ -14,7 +16,7 @@
 #  index_assignees_on_assignable  (assignable_type,assignable_id)
 #  index_assignees_on_member_id   (member_id)
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Assignee, type: :model do
   it { is_expected.to have_db_column(:assignable_id).of_type(:integer) }
