@@ -4,16 +4,19 @@
 #
 # Table name: events
 #
-#  id            :bigint           not null, primary key
-#  description   :text
-#  ends_at       :datetime
-#  starts_at     :datetime
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  event_type_id :bigint
+#  id              :bigint           not null, primary key
+#  assignable_type :string
+#  description     :text
+#  ends_at         :datetime
+#  starts_at       :datetime
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  assignable_id   :bigint
+#  event_type_id   :bigint
 #
 # Indexes
 #
+#  index_events_on_assignable     (assignable_type,assignable_id)
 #  index_events_on_event_type_id  (event_type_id)
 #  index_events_on_starts_at      (starts_at)
 #
@@ -22,6 +25,7 @@
 #  fk_rails_...  (event_type_id => event_types.id)
 #
 require "rails_helper"
+require "models/concerns/assignable_spec"
 
 RSpec.describe Event, type: :model do
   let!(:event_type) { FactoryBot.create(:event_type) }
@@ -32,6 +36,8 @@ RSpec.describe Event, type: :model do
       .with_primary_key("event_type_id")
       .optional
   end
+
+  it_behaves_like "assignable"
 
   describe "required fields" do
     let(:event) { FactoryBot.build(:event, event_type_id: event_type.id) }
