@@ -19,4 +19,5 @@ class List < ApplicationRecord
   include Assignable
 
   validates :description, presence: true
+  has_many :tasks, dependent: :restrict_with_error
 end
