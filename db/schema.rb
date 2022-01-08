@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_01_194904) do
+ActiveRecord::Schema.define(version: 2022_01_08_190131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,9 @@ ActiveRecord::Schema.define(version: 2022_01_01_194904) do
     t.integer "priority"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "assignable_type"
+    t.bigint "assignable_id"
+    t.index ["assignable_type", "assignable_id"], name: "index_tasks_on_assignable"
     t.index ["due_date"], name: "index_tasks_on_due_date"
   end
 
