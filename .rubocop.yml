@@ -3,3 +3,15 @@ require: rubocop-rails
 Style/StringLiterals:
     Enabled: true
     EnforcedStyle: double_quotes
+
+Metrics/BlockLength:
+    Enabled: false
+
+Documentation:
+  Enabled: false
+
+Layout/LineLength:
+    Max: 1000
+
+Style/ClassAndModuleChildren:
+    Enabled: false
