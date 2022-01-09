@@ -2,15 +2,15 @@
 
 # == Schema Information
 #
-# Table name: event_types
+# Table name: budget_categories
 #
 #  id          :bigint           not null, primary key
-#  description :text
+#  description :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 require "rails_helper"
 
-RSpec.describe Event::Type, type: :model do
+RSpec.describe Budget::Category, type: :model do
   it { should validate_presence_of(:description) }
 end

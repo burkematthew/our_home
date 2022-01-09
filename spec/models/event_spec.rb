@@ -32,8 +32,8 @@ RSpec.describe Event, type: :model do
   # TODO: Revisit this.  For some reason it's not working as expected.
   xit do
     should belong_to(:type)
-      .class_name("Event::Type")
-      .with_primary_key("event_type_id")
+      .class_name(Event::Type)
+      .with_foreign_key("event_type_id")
       .optional
   end
 
