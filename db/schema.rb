@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_08_232336) do
+ActiveRecord::Schema.define(version: 2022_01_09_144240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 2022_01_08_232336) do
     t.bigint "member_id"
     t.index ["assignable_type", "assignable_id"], name: "index_assignees_on_assignable"
     t.index ["member_id"], name: "index_assignees_on_member_id"
+  end
+
+  create_table "budgets", force: :cascade do |t|
+    t.integer "month"
+    t.string "description"
+    t.integer "cash_flow_type"
+    t.decimal "amount", precision: 10, scale: 2
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "event_types", force: :cascade do |t|
