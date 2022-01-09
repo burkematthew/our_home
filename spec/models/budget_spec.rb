@@ -30,6 +30,6 @@ RSpec.describe Budget, type: :model do
   it { should validate_presence_of(:description) }
   it { should validate_presence_of(:cash_flow_type) }
 
-  it { should define_enum_for(:cash_flow_type).with(Budget::CASH_FLOW_TYPES) }
-  it { should define_enum_for(:month).with(Budget::BUDGET_MONTHS) }
+  it { should define_enum_for(:cash_flow_type).with_values(Budget::CASH_FLOW_TYPES) }
+  it { should define_enum_for(:month).with_values(Budget::BUDGET_MONTHS) }
 end
