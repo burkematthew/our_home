@@ -7,6 +7,9 @@ Style/StringLiterals:
 Metrics/BlockLength:
     Enabled: false
 
+Metrics/MethodLength:
+    Enabled: false
+
 Documentation:
   Enabled: false
 
@@ -14,4 +17,7 @@ Layout/LineLength:
     Max: 1000
 
 Style/ClassAndModuleChildren:
+    Enabled: false
+
+Style/EmptyMethod:
     Enabled: false
