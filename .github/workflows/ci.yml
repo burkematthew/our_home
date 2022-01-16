@@ -48,6 +48,10 @@ jobs:
           PG_USER: test
           PG_PASSWORD: test
         run: bundle exec rake db:create db:schema:load
+      - name: Yarn install
+        run: yarn install --frozen-lockfile
+      - name: Precompile Assets
+        run: bundle exec rails webpacker:compile
       - name: Run Tests
         env:
           RAILS_ENV: test
