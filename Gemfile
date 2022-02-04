@@ -8,9 +8,9 @@ ruby "3.0.0"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 6.1.4"
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+gem "pg", "~> 1.3"
 # Use Puma as the app server
-gem "puma", "~> 5.0"
+gem "puma", "~> 5.6"
 # Use SCSS for stylesheets
 gem "sass-rails", ">= 6"
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -36,7 +36,7 @@ group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
-  gem "rspec-rails", "~> 5.0"
+  gem "rspec-rails", "~> 5.1"
 end
 
 group :development do
