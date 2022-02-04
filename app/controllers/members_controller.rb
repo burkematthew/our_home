@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 class MembersController < ApplicationController
-  before_action :set_member, only: %i[show edit update destroy]
+  before_action :set_member, only: %i[show edit destroy]
+  before_action :set_member_for_update, only: %i[update]
 
   def index
     @members = Member.all
-    @members_exist = @members.length > 0
+    @members_exist = @members.length.positive?
   end
 
   def show
@@ -33,7 +34,6 @@ class MembersController < ApplicationController
   end
 
   def update
-    @member = Member.find(params[:id])
     respond_to do |format|
       if @member.update(member_params)
         format.html { redirect_to members_path, notice: "Member was successfully updated." }
@@ -43,8 +43,6 @@ class MembersController < ApplicationController
         format.json { render json: @member.errors, status: :unprocessable_entity }
       end
     end
-  rescue ActiveRecord::RecordNotFound
-    render :edit, status: :not_found
   end
 
   def destroy
@@ -63,6 +61,12 @@ class MembersController < ApplicationController
     @member = Member.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     render :index, status: :not_found
+  end
+
+  def set_member_for_update
+    @member = Member.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    render :edit, status: :not_found
   end
 
   def member_params

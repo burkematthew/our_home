@@ -1,28 +1,28 @@
-<div class="p-10">
-  <h1 class="mb-4 text-4xl font-black">Members</h1>
+<div class="flex-col">
+  <%= render(Forms::HeaderComponent.new(text: "Members")) %>
   <% if @members_exist %>
-    <table class="table-auto">
-      <thead>
+    <table class="divide-y divide-gray-300 ">
+      <thead class="bg-gray-50">
         <tr>
-          <th>First Name</th>
-          <th>Middle Name</th>
-          <th>Last Name</th>
-          <th>Birthdate</th>
-          <th colspan="3">Actions</th>
+          <th class="px-6 py-2 text-xs text-gray-500">First Name</th>
+          <th class="px-6 py-2 text-xs text-gray-500">Middle Name</th>
+          <th class="px-6 py-2 text-xs text-gray-500">Last Name</th>
+          <th class="px-6 py-2 text-xs text-gray-500">Birthdate</th>
+          </th class="px-6 py-2 text-xs text-gray-500" colspan="3">
         </tr>
       </thead>
 
       <tbody>
         <% @members.each do |member| %>
-            <tr class="border-4 border-gray-200">
-            <td><%= member.first_name %></td>
-            <td><%= member.middle_name %></td>
-            <td><%= member.last_name %></td>
-            <td><%= member.birthdate %></td>
-            <td><%= link_to 'Show', member %></td>
-            <td><%= link_to 'Edit', edit_member_path(member) %></td>
-            <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
+          <tr class="whitespace-nowrap">
+            <td class="px-6 py-4 text-sm text-gray-500"><%= member.first_name %></td>
+            <td class="px-6 py-4 text-sm text-gray-500"><%= member.middle_name %></td>
+            <td class="px-6 py-4 text-sm text-gray-500"><%= member.last_name %></td>
+            <td class="px-6 py-4 text-sm text-gray-500"><%= member.birthdate.strftime("%B %d, %Y") %></td>
+            <td class="px-6 py-4 text-sm text-gray-500"><%= link_to "View", member, class:"px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full" %></td>
+            <td class="px-6 py-4 text-sm text-gray-500"><%= link_to "Edit", edit_member_path(member), class:"px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full" %></td>
+            <td class="px-6 py-4 text-sm text-gray-500"><%= link_to "Delete", member, method: :delete, data: { confirm: 'Are you sure?' }, class:"px-4 py-1 text-sm text-red-600 bg-red-200 rounded-full" %></td>
+          </tr>
         <% end %>
       </tbody>
     </table>
@@ -30,5 +30,5 @@
     <h2 class="mb-4 text-xl font-black">No Current Members</h2>
   <% end %>
   <br>
-  <%= link_to 'New Member', new_member_path, class: "bg-indigo-500 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black" %>
+  <%= link_to 'New Member', new_member_path, class: "bg-indigo-500 text-white px-4 py-2 border rounded-md hover:border-black" %>
 <div>
