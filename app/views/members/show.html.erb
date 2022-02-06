@@ -1,1 +1,9 @@
-<%= render(Forms::HeaderComponent.new(text: "Hello!")) %>
+<%= render(Forms::ShowComponent.new(
+    header: @member.full_name, 
+    fields: [
+                { label: "Birthdate", data: @member.birthdate&.strftime("%B %d, %Y") },
+                { label: "Created", data: @member.created_at.to_date&.strftime("%B %d, %Y") },
+                { label: "Updated", data: @member.updated_at.to_date&.strftime("%B %d, %Y") }
+            ]
+    )) 
+%>
