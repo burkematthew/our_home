@@ -4,6 +4,13 @@
 require "spec_helper"
 require "shoulda/matchers"
 require "factory_bot"
+require "view_component/test_helpers"
+require "capybara/rspec"
+
+RSpec.configure do |config|
+  config.include ViewComponent::TestHelpers, type: :component
+  config.include Capybara::RSpecMatchers, type: :component
+end
 
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../config/environment", __dir__)
