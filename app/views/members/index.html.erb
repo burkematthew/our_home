@@ -2,16 +2,7 @@
   <%= render(Forms::HeaderComponent.new(text: "Members")) %>
   <% if @members_exist %>
     <table class="divide-y divide-gray-300 ">
-      <thead class="bg-gray-50">
-        <tr>
-          <th class="px-6 py-2 text-xs text-gray-500">First Name</th>
-          <th class="px-6 py-2 text-xs text-gray-500">Middle Name</th>
-          <th class="px-6 py-2 text-xs text-gray-500">Last Name</th>
-          <th class="px-6 py-2 text-xs text-gray-500">Birthdate</th>
-          </th class="px-6 py-2 text-xs text-gray-500" colspan="3">
-        </tr>
-      </thead>
-
+      <%= render(Tables::HeaderComponent.new(headers: ["First Name", "Middle Name", "Last Name", "Birthdate"], include_actions: true)) %>
       <tbody>
         <% @members.each do |member| %>
           <tr class="whitespace-nowrap">

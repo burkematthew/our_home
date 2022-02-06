@@ -60,13 +60,13 @@ class MembersController < ApplicationController
   def set_member
     @member = Member.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    render :index, status: :not_found
+    redirect_to members_path, status: :not_found
   end
 
   def set_member_for_update
     @member = Member.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    render :edit, status: :not_found
+    redirect_to members_path, status: :not_found
   end
 
   def member_params

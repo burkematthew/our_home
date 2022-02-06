@@ -24,4 +24,4 @@ Style/EmptyMethod:
 
 Lint/MissingSuper:
   Exclude:
-    - "app/components/forms/**"
+    - "app/components/**/*"
