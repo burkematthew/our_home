@@ -1,1 +1,5 @@
-<h1>Hello!</h1>
+<div>
+  <%= render(Forms::HeaderComponent.new(text: "Edit #{@member.first_name}")) %>
+
+  <%= render partial: "form", member: @member %>
+</div>

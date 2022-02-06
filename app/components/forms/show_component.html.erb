@@ -1,0 +1,12 @@
+<div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="px-6 py-4">
+    <div class="font-bold text-black text-xl mb-2">
+      <%= @header %>
+    </div>
+    <% @fields.each do |field| %>
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+        <%= field[:label] %> <p class="text-black-700 text-base"><%= field[:data] %></p>
+      </label>
+    <% end %>
+  </div>
+</div>

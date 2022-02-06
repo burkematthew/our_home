@@ -55,9 +55,9 @@ RSpec.describe "Members", type: :request do
     end
 
     context "when the record doesn't already exist" do
-      it "returns HTTP success" do
+      it "returns HTTP redirect" do
         post members_path, params: good_params
-        expect(response).to have_http_status(:success)
+        expect(response).to have_http_status(:redirect)
       end
     end
 
@@ -94,9 +94,9 @@ RSpec.describe "Members", type: :request do
     end
 
     context "when the record already exist" do
-      it "returns HTTP success" do
+      it "returns HTTP redirect" do
         put member_path(id: member.id), params: good_params
-        expect(response).to have_http_status(:success)
+        expect(response).to have_http_status(:redirect)
         expect(member.reload.birthdate).to eq(Date.current)
       end
     end
@@ -118,9 +118,9 @@ RSpec.describe "Members", type: :request do
 
   describe "DELETE /member/:id" do
     context "when the ID exists" do
-      it "returns HTTP success" do
+      it "returns HTTP redirect" do
         delete member_path(member)
-        expect(response).to have_http_status(:success)
+        expect(response).to have_http_status(:redirect)
       end
     end
 

@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 class MembersController < ApplicationController
-  before_action :set_member, only: %i[show edit update destroy]
+  before_action :set_member, only: %i[show edit destroy]
+  before_action :set_member_for_update, only: %i[update]
 
   def index
     @members = Member.all
+    @members_exist = @members.length.positive?
   end
 
   def show
@@ -19,10 +21,10 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        format.html { render :index, notice: "Member was successfully added." }
+        format.html { redirect_to members_path, notice: "Member was successfully added." }
         format.json { render :show, status: :created, location: @member }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to new_member_path(@member), status: :unprocessable_entity }
         format.json { render json: @member.errors, status: :unprocessable_entity }
       end
     end
@@ -32,28 +34,25 @@ class MembersController < ApplicationController
   end
 
   def update
-    @member = Member.find(params[:id])
     respond_to do |format|
       if @member.update(member_params)
-        format.html { render :show, notice: "Member was successfully updated." }
+        format.html { redirect_to members_path, notice: "Member was successfully updated." }
         format.json { render :show, status: :ok, location: @member }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { redirect_to edit_member_path(@member), status: :unprocessable_entity }
         format.json { render json: @member.errors, status: :unprocessable_entity }
       end
     end
-  rescue ActiveRecord::RecordNotFound
-    render :edit, status: :not_found
   end
 
   def destroy
     if @member.destroy
-      render :index, notice: "Member was successfully deleted."
+      redirect_to members_path, notice: "Member was successfully deleted."
     else
       render :show, notice: "Failed to delete Member."
     end
   rescue ActiveRecord::RecordNotFound
-    render :index, status: :not_found
+    redirect_to members_path, status: :not_found
   end
 
   private
@@ -61,7 +60,13 @@ class MembersController < ApplicationController
   def set_member
     @member = Member.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    render :index, status: :not_found
+    redirect_to members_path, status: :not_found
+  end
+
+  def set_member_for_update
+    @member = Member.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to members_path, status: :not_found
   end
 
   def member_params

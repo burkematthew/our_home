@@ -1,0 +1,10 @@
+<thead class="bg-gray-50">
+  <tr>
+    <% @headers.each do |header| %>
+      <th class="px-6 py-2 text-xs text-gray-500"><%= header %></th>
+    <% end %>
+    <% if @include_actions %>
+      </th class="px-6 py-2 text-xs text-gray-500" colspan="3">
+    <% end %>
+  </tr>
+</thead>

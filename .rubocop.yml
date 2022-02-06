@@ -21,3 +21,7 @@ Style/ClassAndModuleChildren:
 
 Style/EmptyMethod:
     Enabled: false
+
+Lint/MissingSuper:
+  Exclude:
+    - "app/components/**/*"

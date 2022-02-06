@@ -251,6 +251,10 @@ GEM
       sprockets (>= 3.0.0)
     strong_migrations (0.7.9)
       activerecord (>= 5)
+    tailwindcss-rails (2.0.5-x86_64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.5-x86_64-linux)
+      railties (>= 6.0.0)
     thor (1.2.1)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -259,6 +263,9 @@ GEM
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.1.0)
+    view_component (2.36.0)
+      activesupport (>= 5.0.0, < 8.0)
+      method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -310,8 +317,10 @@ DEPENDENCIES
   simplecov-cobertura
   spring
   strong_migrations
+  tailwindcss-rails (~> 2.0)
   turbolinks (~> 5)
   tzinfo-data
+  view_component
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
