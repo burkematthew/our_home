@@ -1,0 +1,19 @@
+<li class="my-px">
+  <%= link_to @path, class: "flex flex-row items-center h-10 px-3 rounded-lg text-black-300 hover:bg-gray-100 hover:text-gray-700" do %>
+    <span class="flex items-center justify-center text-lg text-gray-400">
+      <svg
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        class="h-6 w-6"
+      >
+        <path d="<%= @svg_path %>" />
+      </svg>
+    </span>
+    <span class="ml-3"><%= @label %></span>
+  <% end %>
+</li>
+
