@@ -11,5 +11,5 @@
 #
 class Budget::Category < ApplicationRecord
   validates :description, presence: true
-  has_many :budgets, class_name: "Budget", foreign_key: :budget_id, dependent: :restrict_with_error, inverse_of: :events
+  # has_many :budgets, class_name: "Budget", foreign_key: :budget_id, dependent: :restrict_with_error, inverse_of: :category
 end
