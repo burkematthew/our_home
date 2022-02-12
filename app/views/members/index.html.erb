@@ -1,5 +1,10 @@
 <div class="flex-col">
-  <%= render(Forms::HeaderComponent.new(text: "Members")) %>
+  <div class="mb-5">
+    <%= render(Forms::HeaderComponent.new(text: "Members")) %>
+  </div>
+  <div class="mt-5 mb-5">
+    <%= link_to "+ New", new_member_path, class: "bg-yellow-200 text-black-300 px-4 py-2 border rounded-md hover:border-black" %>
+  </div>
   <% if @members_exist %>
     <table class="divide-y divide-gray-300 ">
       <%= render(Tables::HeaderComponent.new(headers: ["First Name", "Middle Name", "Last Name", "Birthdate"], include_actions: true)) %>
@@ -20,6 +25,4 @@
   <% else %>
     <h2 class="mb-4 text-xl font-black">No Current Members</h2>
   <% end %>
-  <br>
-  <%= link_to 'New Member', new_member_path, class: "bg-yellow-200 text-black-300 px-4 py-2 border rounded-md hover:border-black" %>
 <div>

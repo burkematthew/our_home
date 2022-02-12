@@ -1,4 +1,4 @@
-<aside class="sidebar w-64 h-screen md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-yellow-200">
+<aside class="sidebar w-64 h-screen md:shadow-xl transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-yellow-200">
   <div class="sidebar-header flex items-left justify-left px-4 py-2">
     <div class="inline-flex">
       <span class="leading-10 text-black-100 text-2xl ml-1">The Burke Family</span>
@@ -15,7 +15,7 @@
       %>
       
       <li class="my-px">
-        <span class="flex font-medium text-sm text-black-300 px-4 my-4 uppercase">Settings</span>
+        <span class="flex font-medium text-sm text-black-300 px-4 my-4 uppercase underline">Settings</span>
       </li>
       <%= render(Navigation::SidebarComponent.new(
         path: members_path, 
