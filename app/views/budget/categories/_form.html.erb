@@ -1,0 +1,14 @@
+<%= form_with(model: @budget_category) do |form| %>
+  <%= render(Forms::ErrorComponent.new(errors: @budget_category.errors, label: "budget category")) %>
+
+  <div class="flex flex-wrap -mx-3 mb-12">
+    <div class="field px-3">
+      <%= render(Forms::LabelComponent.new(label: "Description")) %>
+      <%= form.text_field :description, class: "appearance-none block w-full border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white", placeholder: "Enter the first name"  %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "bg-yellow-200 text-black-300 px-4 py-2 border rounded-md hover:border-black" %>
+  </div>
+<% end %>

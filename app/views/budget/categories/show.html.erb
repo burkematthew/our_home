@@ -1,0 +1,9 @@
+<%= render(Forms::ShowComponent.new(
+    header: @budget_category.description, 
+    fields: [
+                { label: "ID", data: @budget_category.id },
+                { label: "Created", data: @budget_category.created_at.to_date&.strftime("%B %d, %Y") },
+                { label: "Updated", data: @budget_category.updated_at.to_date&.strftime("%B %d, %Y") }
+            ]
+    )) 
+%>

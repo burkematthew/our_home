@@ -34,7 +34,7 @@ class Event < ApplicationRecord
   validates :starts_at, presence: true
   validates :ends_at, presence: true
   validate :valid_date_range?
-  belongs_to :type, optional: true
+  belongs_to :type, optional: true, foreign_key: "event_type_id", inverse_of: :events
 
   def valid_date_range?
     return false if starts_at.nil? || ends_at.nil?

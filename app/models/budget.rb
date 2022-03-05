@@ -25,7 +25,7 @@ class Budget < ApplicationRecord
   validates :cash_flow_type, presence: true
   validates :description, presence: true
 
-  belongs_to :category
+  belongs_to :category, foreign_key: "budget_category_id", inverse_of: :budgets
 
   enum cash_flow_type: Budget::CASH_FLOW_TYPES
   enum month: Budget::BUDGET_MONTHS
