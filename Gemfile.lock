@@ -110,6 +110,9 @@ GEM
       activesupport (>= 5.0)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
+    importmap-rails (1.0.3)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
     io-wait (0.2.1)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
@@ -325,6 +328,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   factory_bot_rails
+  importmap-rails
   jbuilder (~> 2.11)
   listen (~> 3.7)
   pg (~> 1.3)
