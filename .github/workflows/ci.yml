@@ -52,8 +52,8 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Precompile Assets
         run: bundle exec rails assets:precompile
-      - name: Compile Webpacker
-        run: bundle exec rails webpacker:compile
+      - name: Build Esbuild
+        run: yarn build
       - name: Run Tests
         env:
           RAILS_ENV: test

@@ -30,7 +30,7 @@ gem "jbuilder", "~> 2.11"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
 
-gem "view_component", require: "view_component/engine"
+gem "view_component"
 
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
@@ -74,3 +74,7 @@ gem "strong_migrations"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 gem "tailwindcss-rails", "~> 2.0"
+
+gem "jsbundling-rails", "~> 1.0"
+
+gem "stimulus-rails", "~> 1.0"
