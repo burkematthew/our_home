@@ -1,0 +1,26 @@
+<div class="flex-col">
+  <div class="mb-5">
+    <%= render(Forms::HeaderComponent.new(text: "Event Types")) %>
+  </div>
+  <div class="mt-5 mb-5">
+    <%= link_to "+ New", new_event_type_path, class: "bg-yellow-200 text-black-300 px-4 py-2 border rounded-md hover:border-black" %>
+  </div>
+  <% if @event_types_exist %>
+    <table class="divide-y divide-gray-300 ">
+      <%= render(Tables::HeaderComponent.new(headers: ["ID", "Description"], include_actions: true)) %>
+      <tbody>
+        <% @event_types.each do |event_type| %>
+          <tr class="whitespace-nowrap">
+            <td class="px-6 py-4 text-sm text-gray-500"><%= event_type.id %></td>
+            <td class="px-6 py-4 text-sm text-gray-500"><%= event_type.description %></td>
+            <td class="px-6 py-4 text-sm text-gray-500"><%= link_to "View", event_type, class:"px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full" %></td>
+            <td class="px-6 py-4 text-sm text-gray-500"><%= link_to "Edit", edit_event_type_path(event_type), class:"px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full" %></td>
+            <td class="px-6 py-4 text-sm text-gray-500"><%= link_to "Delete", event_type, method: :delete, data: { confirm: 'Are you sure?' }, class:"px-4 py-1 text-sm text-red-600 bg-red-200 rounded-full" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <h2 class="mb-4 text-xl font-black">No Current Event Types</h2>
+  <% end %>
+<div>

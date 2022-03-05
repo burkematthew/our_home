@@ -30,6 +30,13 @@
         label: "Budget Categories"
         )) 
       %>
+
+      <%= render(Navigation::SidebarComponent.new(
+        path: event_types_path, 
+        svg_path: nil,
+        label: "Event Types"
+        )) 
+      %>
     </ul>
   </div>
 </aside>

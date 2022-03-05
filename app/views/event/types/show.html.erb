@@ -1,0 +1,9 @@
+<%= render(Forms::ShowComponent.new(
+    header: @event_type.description, 
+    fields: [
+                { label: "ID", data: @event_type.id },
+                { label: "Created", data: @event_type.created_at.to_date&.strftime("%B %d, %Y") },
+                { label: "Updated", data: @event_type.updated_at.to_date&.strftime("%B %d, %Y") }
+            ]
+    )) 
+%>
