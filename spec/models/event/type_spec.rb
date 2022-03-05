@@ -13,4 +13,5 @@ require "rails_helper"
 
 RSpec.describe Event::Type, type: :model do
   it { should validate_presence_of(:description) }
+  it { should have_many(:events).class_name("Event").with_foreign_key(:event_type_id).inverse_of(:type) }
 end
