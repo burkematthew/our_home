@@ -39,7 +39,7 @@ class Budget::CategoriesController < ApplicationController
         format.html { redirect_to budget_categories_path, notice: "Budget Category was successfully updated." }
         format.json { render :show, status: :ok, location: @budget_category }
       else
-        format.html { redirect_to edit_budget_category(@budget_category), status: :unprocessable_entity }
+        format.html { redirect_to edit_budget_category_path(@budget_category), status: :unprocessable_entity }
         format.json { render json: @budget_category.errors, status: :unprocessable_entity }
       end
     end
