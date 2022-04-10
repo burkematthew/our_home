@@ -29,8 +29,7 @@ require "models/concerns/assignable_spec"
 
 RSpec.describe Event, type: :model do
   let!(:event_type) { FactoryBot.create(:event_type) }
-  # TODO: Revisit this.  For some reason it's not working as expected.
-  xit do
+  it do
     should belong_to(:type)
       .class_name(Event::Type)
       .with_foreign_key("event_type_id")
@@ -91,49 +90,6 @@ RSpec.describe Event, type: :model do
 
       it "is invalid when not populated" do
         event.ends_at = nil
-        expect(event.valid?).to eq false
-      end
-    end
-  end
-
-  describe "#valid_date_range?" do
-    let(:event) { FactoryBot.build(:event, event_type_id: event_type.id) }
-    context "when starts_at is nil" do
-      it "returns true when ends_at is nil" do
-        event.starts_at = nil
-        event.ends_at = nil
-        expect(event.valid_date_range?).to eq false
-      end
-
-      it "returns true when ends_at is not nil" do
-        event.starts_at = nil
-        event.ends_at = Time.zone.now
-        expect(event.valid?).to eq false
-      end
-    end
-
-    context "when starts_at is not nil" do
-      it "returns true when ends_at is nil" do
-        event.starts_at = Time.zone.now
-        event.ends_at = nil
-        expect(event.valid?).to eq false
-      end
-
-      it "returns true when ends_at is not nil, but less than ends_at" do
-        event.starts_at = Time.zone.now
-        event.ends_at = Time.zone.now + 1.hour
-        expect(event.valid?).to eq true
-      end
-
-      it "returns true when ends_at is not nil, but equal to ends_at" do
-        event.starts_at = Time.zone.now
-        event.ends_at = Time.zone.now
-        expect(event.valid?).to eq true
-      end
-
-      it "returns false when ends_at is not nil, but greater than ends_at" do
-        event.starts_at = Time.zone.now
-        event.ends_at = Time.zone.now - 1.hour
         expect(event.valid?).to eq false
       end
     end
