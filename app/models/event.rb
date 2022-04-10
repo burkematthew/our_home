@@ -28,17 +28,7 @@ class Event < ApplicationRecord
   include Assignable
 
   validates :description, presence: true
-  # NOTE: Add these when we upgrade to Rails 7
-  # validates :starts_at, comparison: { less_than_or_equal_to: :ends_at }
-  # validates :ends_at, comparison: { greater_than_or_equal_to: :starts_at }
-  validates :starts_at, presence: true
-  validates :ends_at, presence: true
-  validate :valid_date_range?
+  validates :starts_at, comparison: { less_than_or_equal_to: :ends_at }
+  validates :ends_at, comparison: { greater_than_or_equal_to: :starts_at }
   belongs_to :type, optional: true, foreign_key: "event_type_id", inverse_of: :events
-
-  def valid_date_range?
-    return false if starts_at.nil? || ends_at.nil?
-
-    errors.add(:starts_at, "must be less than or equal to ends_at") if starts_at.after?(ends_at)
-  end
 end
