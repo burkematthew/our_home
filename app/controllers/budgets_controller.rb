@@ -24,7 +24,7 @@ class BudgetsController < ApplicationController
         format.html { redirect_to budgets_path, notice: "Budget was successfully added." }
         format.json { render :show, status: :created, location: @budget }
       else
-        format.html { redirect_to new_budget_path(@budget), status: :unprocessable_entity }
+        format.html { redirect_to new_budget_path, status: :unprocessable_entity }
         format.json { render json: @budget.errors, status: :unprocessable_entity }
       end
     end
@@ -70,6 +70,6 @@ class BudgetsController < ApplicationController
   end
 
   def budget_params
-    params.require(:budget).permit(:description)
+    params.require(:budget).permit(:description, :budget_category_id, :month, :cash_flow_type, :amount)
   end
 end
