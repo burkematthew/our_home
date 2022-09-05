@@ -9,7 +9,7 @@ class Mintapi::Transactions < Mintapi::Base
     )
     parsed_response
   rescue Net::ReadTimeout
-    Rails.logger.info { "Timeout trying to fetch transactions from my-mintapi" }
+    Rails.logger.info { "Timeout while fetching transactions from my-mintapi" }
   end
 
   private
