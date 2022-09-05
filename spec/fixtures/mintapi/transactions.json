@@ -1,0 +1,45 @@
+[
+    {
+        "accountId": "1_3",
+        "accountRef": {
+            "hiddenFromPlanningAndTrends": false,
+            "id": "3",
+            "name": "My Account",
+            "type": "CreditAccount"
+        },
+        "amount": -9.8,
+        "category": {
+            "categoryType": "EXPENSE",
+            "id": "1_2",
+            "name": "Shopping",
+            "parentId": "1_0",
+            "parentName": "Root"
+        },
+        "date": "2012-12-22",
+        "description": "Amazon",
+        "discretionaryType": "DISCRETIONARY",
+        "etag": "tag",
+        "fiData": {
+            "amount": -9.8,
+            "date": "2012-12-22",
+            "description": "Amazon",
+            "id": "fiDataId",
+            "inferredCategory": {
+                "id": "1_2",
+                "name": "Shopping"
+            },
+            "inferredDescription": "Amazon"
+        },
+        "id": "1_4_0",
+        "isExpense": true,
+        "isLinkedToRule": false,
+        "isPending": false,
+        "isReviewed": false,
+        "lastUpdatedDate": "2012-12-22T20:10:19Z",
+        "matchState": "NOT_MATCHED",
+        "merchantId": 7218,
+        "status": "POSTED",
+        "transactionReviewState": "UNREVIEWED",
+        "type": "CashAndCreditTransaction"
+    }
+]
