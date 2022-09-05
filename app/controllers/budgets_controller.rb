@@ -18,7 +18,6 @@ class BudgetsController < ApplicationController
 
   def create
     @budget = Budget.new(budget_params)
-    debugger
     respond_to do |format|
       if @budget.save
         format.html { redirect_to budgets_path, notice: "Budget was successfully added." }
@@ -51,8 +50,6 @@ class BudgetsController < ApplicationController
     else
       render :show, notice: "Failed to delete Budget."
     end
-  rescue ActiveRecord::RecordNotFound
-    redirect_to budgets_path, status: :not_found
   end
 
   private

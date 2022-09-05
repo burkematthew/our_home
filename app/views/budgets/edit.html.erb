@@ -1,5 +1,5 @@
 <div>
-  <%= render(Forms::HeaderComponent.new(text: "Edit #{@budget.description} Budget for #{budget.month.titleize}")) %>
+  <%= render(Forms::HeaderComponent.new(text: "Edit #{@budget.description} Budget for #{@budget.month.titleize}")) %>
 
   <%= render partial: "form", budget: @budget %>
 </div>

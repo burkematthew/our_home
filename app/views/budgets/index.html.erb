@@ -11,7 +11,7 @@
       <tbody>
         <% @budgets.each do |budget| %>
           <tr class="whitespace-nowrap">
-            <td class="px-6 py-4 text-sm text-gray-500"><%= budget.month %></td>
+            <td class="px-6 py-4 text-sm text-gray-500"><%= budget.month.humanize %></td>
             <td class="px-6 py-4 text-sm text-gray-500"><%= budget.cash_flow_type %></td>
             <td class="px-6 py-4 text-sm text-gray-500"><%= budget.description %></td>
             <td class="px-6 py-4 text-sm text-gray-500"><%= budget.amount %></td>

@@ -1,9 +1,11 @@
 <%= render(Forms::ShowComponent.new(
-    header: @member.full_name, 
+    header: "#{@budget.description} Budget for #{@budget.month.titleize}", 
     fields: [
-                { label: "Birthdate", data: @member.birthdate&.strftime("%B %d, %Y") },
-                { label: "Created", data: @member.created_at.to_date&.strftime("%B %d, %Y") },
-                { label: "Updated", data: @member.updated_at.to_date&.strftime("%B %d, %Y") }
+                { label: "Cash Flow Type", data: @budget.cash_flow_type },
+                { label: "Budget Category", data: @budget.category.description },
+                { label: "Amount", data: @budget.amount },
+                { label: "Created", data: @budget.created_at.to_date&.strftime("%B %d, %Y") },
+                { label: "Updated", data: @budget.updated_at.to_date&.strftime("%B %d, %Y") }
             ]
     )) 
 %>
