@@ -39,6 +39,10 @@ group :development, :test do
   gem "rspec-rails", "~> 5.1"
 end
 
+group :development, :test do
+  gem "dotenv-rails"
+end
+
 group :development do
   gem "annotate"
   # Access an interactive console on exception pages or by calling "console" anywhere in the code.
@@ -73,4 +77,6 @@ gem "strong_migrations"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
+gem "httparty"
+gem "jwt"
 gem "tailwindcss-rails", "~> 2.0"
