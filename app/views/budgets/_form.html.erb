@@ -12,18 +12,16 @@
     </div>
   </div>
 
-  <div class="flex flex-wrap">
-    <div>
-      <%= render(Forms::LabelComponent.new(label: "Month")) %>
-      <%= form.select :month, budget_month_options_for_select, {prompt: 'Select a Month'}, class: "form-select appearance-none block w-full border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
-    </div>
-
-    <div>
-      <%= render(Forms::LabelComponent.new(label: "Category")) %>
-      <%= form.select :budget_category_id, budget_category_options_for_select, {prompt: 'Select a Budget Category'}, class: "form-select appearance-none block w-full border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
-    </div>
+  <div>
+    <%= render(Forms::LabelComponent.new(label: "Month")) %>
+    <%= form.select :month, budget_month_options_for_select, {prompt: 'Select a Month'}, class: "form-select appearance-none block w-full border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
   </div>
 
+  <div>
+    <%= render(Forms::LabelComponent.new(label: "Category")) %>
+    <%= form.select :budget_category_id, budget_category_options_for_select, {prompt: 'Select a Budget Category'}, class: "form-select appearance-none block w-full border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
+  </div>
+  
   <div>
     <%= render(Forms::LabelComponent.new(label: "Amount")) %>
     <%= form.number_field :amount, step: 0.01, class: "appearance-none block w-full border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white", placeholder: "Enter the amount" %>
