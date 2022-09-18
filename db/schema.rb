@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_10_133861) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_18_195546) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -120,6 +120,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_10_133861) do
     t.index ["assignable_type", "assignable_id"], name: "index_tasks_on_assignable"
     t.index ["due_date"], name: "index_tasks_on_due_date"
     t.index ["list_id"], name: "index_tasks_on_list_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "account_id"
+    t.decimal "amount", precision: 10, scale: 2
+    t.date "date"
+    t.string "description"
+    t.integer "merchant_id"
+    t.string "labels", default: [], array: true
+    t.integer "category_id"
+    t.string "external_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_transactions_on_account_id"
+    t.index ["category_id"], name: "index_transactions_on_category_id"
+    t.index ["date"], name: "index_transactions_on_date"
+    t.index ["external_id"], name: "index_transactions_on_external_id"
+    t.index ["merchant_id"], name: "index_transactions_on_merchant_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
