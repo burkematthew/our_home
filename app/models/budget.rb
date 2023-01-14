@@ -19,11 +19,12 @@
 #
 class Budget < ApplicationRecord
   CASH_FLOW_TYPES = %i[income expense].freeze
-  BUDGET_MONTHS = { january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12 }.freeze
+  BUDGET_MONTHS = %i[january february march april may june july august september october november december].freeze
 
   validates :month, presence: true
   validates :cash_flow_type, presence: true
   validates :description, presence: true
+  validates :amount, numericality: { greater_than_or_equal_to: 0 }
 
   belongs_to :category, foreign_key: "budget_category_id", inverse_of: :budgets
 

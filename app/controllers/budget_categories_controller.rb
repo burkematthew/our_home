@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Budget::CategoriesController < ApplicationController
+class BudgetCategoriesController < ApplicationController
   before_action :set_budget_category, only: %i[show edit destroy]
   before_action :set_budget_category_for_update, only: %i[update]
 

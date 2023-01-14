@@ -20,8 +20,9 @@
 FactoryBot.define do
   factory :budget do
     month { Budget::BUDGET_MONTHS.first }
-    description { "Landing Paycheck" }
+    description { "Paycheck" }
     cash_flow_type { :income }
-    association :budget_category, factory: :budget_category
+    amount { 1.0 }
+    association :category, factory: :budget_category
   end
 end

@@ -1,0 +1,33 @@
+<%= form_with(model: @budget) do |form| %>
+  <%= render(Forms::ErrorComponent.new(errors: @budget.errors, label: "budget")) %>
+
+  <% Budget::CASH_FLOW_TYPES.each do |type| %>
+    <%= form.radio_button :cash_flow_type, type %> <%= type.to_s.titleize %>
+  <% end %>
+
+  <div class="flex flex-wrap -mx-3 mb-12 mt-5">
+    <div class="field px-3">
+      <%= render(Forms::LabelComponent.new(label: "Description")) %>
+      <%= form.text_field :description, class: "appearance-none block w-full border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white", placeholder: "Enter the description"  %>
+    </div>
+  </div>
+
+  <div>
+    <%= render(Forms::LabelComponent.new(label: "Month")) %>
+    <%= form.select :month, budget_month_options_for_select, {prompt: 'Select a Month'}, class: "form-select appearance-none block w-full border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
+  </div>
+
+  <div>
+    <%= render(Forms::LabelComponent.new(label: "Category")) %>
+    <%= form.select :budget_category_id, budget_category_options_for_select, {prompt: 'Select a Budget Category'}, class: "form-select appearance-none block w-full border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
+  </div>
+  
+  <div>
+    <%= render(Forms::LabelComponent.new(label: "Amount")) %>
+    <%= form.number_field :amount, step: 0.01, class: "appearance-none block w-full border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white", placeholder: "Enter the amount" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "bg-yellow-200 text-black-300 px-4 py-2 border rounded-md hover:border-black" %>
+  </div>
+<% end %>
